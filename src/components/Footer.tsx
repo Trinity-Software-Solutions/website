@@ -109,16 +109,16 @@ export default function Footer() {
                   <Link href="tel:0792620934" sx={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', display: 'block', '&:hover': { color: '#fff' } }}>
                     0792620934
                   </Link>
-                  <Link href="tel:0710464858" sx={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', display: 'block', '&:hover': { color: '#fff' } }}>
-                    0710464858
-                  </Link>
+                   <Link href="tel:0725835781" sx={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', display: 'block', '&:hover': { color: '#fff' } }}>
+                     0725835781
+                   </Link>
                 </Box>
               </Box>
             </Box>
           </Grid>
 
           {/* Links Columns */}
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <SectionHeading>SOLUTIONS</SectionHeading>
             <FooterLink to="/solutions/real-estate">Real Estate Management</FooterLink>
             <FooterLink to="/solutions/poultry">Poultry Management System</FooterLink>
@@ -127,23 +127,13 @@ export default function Footer() {
             <FooterLink to="/solutions" primary>View All Solutions</FooterLink>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
-            <SectionHeading>PRODUCTS</SectionHeading>
-            <FooterLink to="/products">All Products</FooterLink>
-            <FooterLink to="/modules">Features & Modules</FooterLink>
-            <FooterLink to="/resources">Integrations</FooterLink>
-            <FooterLink to="/pricing">Pricing</FooterLink>
-            <FooterLink to="/contact">Request Demo</FooterLink>
-          </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
-            <SectionHeading>COMPANY</SectionHeading>
-            <FooterLink to="/about">About Us</FooterLink>
-            <FooterLink to="/resources">Help Center</FooterLink>
-            <FooterLink to="/resources">Blog & News</FooterLink>
-            <FooterLink to="/resources">Case Studies</FooterLink>
-            <FooterLink to="/contact">Contact Us</FooterLink>
-          </Grid>
+
+           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+             <SectionHeading>COMPANY</SectionHeading>
+             <FooterLink to="/about">About Us</FooterLink>
+             <FooterLink to="/contact">Contact Us</FooterLink>
+           </Grid>
 
            {/* Newsletter Column */}
            <Grid size={{ xs: 12, md: 3 }}>
@@ -151,7 +141,7 @@ export default function Footer() {
              <Typography variant="body2" sx={{ color: '#94a3b8', mb: 2 }}>
                Subscribe to get updates on new features and releases.
              </Typography>
-             <Box component="form" onSubmit={handleNewsletterSubmit} sx={{ display: 'flex', bgcolor: 'rgba(255,255,255,0.05)', borderRadius: 1, p: 0.5 }}>
+             <Box component="form" onSubmit={handleNewsletterSubmit} sx={{ display: 'flex', gap: 1 }}>
                <input
                  type="email"
                  name="email"
@@ -159,26 +149,38 @@ export default function Footer() {
                  aria-label="Email address"
                  style={{ 
                    flexGrow: 1, 
-                   background: 'transparent', 
-                   border: 'none', 
+                   background: 'rgba(255,255,255,0.05)', 
+                   border: '1px solid rgba(255,255,255,0.1)', 
                    color: '#fff', 
-                   paddingLeft: '16px', 
+                   padding: '12px 16px', 
+                   borderRadius: '8px',
                    fontSize: '0.875rem',
                    outline: 'none'
                  }}
                />
-               <Button type="submit" variant="contained" color="primary" disableElevation sx={{ borderRadius: 1 }}>
-                 <EmailIcon sx={{ fontSize: 16 }} />
+               <Button 
+                 type="submit" 
+                 variant="contained" 
+                 color="primary" 
+                 sx={{ 
+                   borderRadius: '8px', 
+                   px: 2, 
+                   textTransform: 'none', 
+                   fontWeight: 600,
+                   whiteSpace: 'nowrap'
+                 }}
+               >
+                 Subscribe
                </Button>
              </Box>
            </Grid>
         </Grid>
 
-        {/* Bottom Bar */}
-        <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.1)', pt: 4, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
-          <Typography variant="body2" sx={{ color: '#64748b' }}>
-            &copy; 2024 Trinity Softwares. All rights reserved.
-          </Typography>
+         {/* Bottom Bar */}
+         <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.1)', pt: 4, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
+           <Typography variant="body2" sx={{ color: '#64748b' }}>
+             &copy; {new Date().getFullYear()} Trinity Softwares. All rights reserved.
+           </Typography>
           <Box sx={{ display: 'flex', gap: 4 }}>
             <Link component={RouterLink} to="#" sx={{ color: '#64748b', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>Privacy Policy</Link>
             <Link component={RouterLink} to="#" sx={{ color: '#64748b', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>Terms of Service</Link>

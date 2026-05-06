@@ -264,15 +264,15 @@ export default function Pricing() {
         </Box>
 
         {}
-        <Box sx={{ mt: 10, pt: 6, borderTop: '1px solid #e2e8f0' }}>
-          <Grid container spacing={2} sx={{ justifyContent: 'space-between' }}>
-            {[
-              { icon: <ShieldOutlinedIcon color="primary" />, title: "14-Day Free Trial", desc: "No credit card required" },
-              { icon: <LockOutlinedIcon color="primary" />, title: "Secure & Compliant", desc: "Enterprise-grade security" },
-              { icon: <SyncOutlinedIcon color="primary" />, title: "Cancel Anytime", desc: "No long-term contracts" },
-              { icon: <SupportAgentOutlinedIcon color="primary" />, title: "24/7 Support", desc: "We're here to help" },
-              { icon: <CloudQueueOutlinedIcon color="primary" />, title: "99.9% Uptime", desc: "Reliable and dependable" }
-            ].map((item, idx) => (
+         <Box sx={{ mt: 10, pt: 6, borderTop: '1px solid #e2e8f0' }}>
+           <Grid container spacing={2} sx={{ justifyContent: 'space-between' }}>
+             {[
+               { icon: <ShieldOutlinedIcon color="primary" />, title: "14-Day Free Trial", desc: "No credit card required" },
+               { icon: <LockOutlinedIcon color="primary" />, title: "256-bit Encryption", desc: "Enterprise-grade security" },
+               { icon: <SyncOutlinedIcon color="primary" />, title: "99.9% Uptime SLA", desc: "Guaranteed availability" },
+               { icon: <SupportAgentOutlinedIcon color="primary" />, title: "24/7 Support", desc: "Avg. response < 1 hour" },
+               { icon: <CloudQueueOutlinedIcon color="primary" />, title: "1M+ Transactions", desc: "Processed monthly" }
+             ].map((item, idx) => (
               <Grid size={{ xs: 12, sm: 6, md: 2.4 }} key={idx}>
                 <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
                   <Box sx={{ p: 1, bgcolor: '#ecfdf5', borderRadius: 2, display: 'flex' }}>

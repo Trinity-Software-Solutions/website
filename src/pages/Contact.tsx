@@ -67,7 +67,6 @@ export default function Contact() {
 
   return (
     <Box sx={{ bgcolor: '#ffffff', minHeight: '100vh', pb: 10 }}>
-      {}
       <Box sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
@@ -99,7 +98,7 @@ export default function Contact() {
                   <Box sx={{ color: '#10b981', mt: 0.5 }}><PhoneIcon /></Box>
                   <Box>
                     <Link href="tel:0792620934" sx={{ color: '#fff', textDecoration: 'none', display: 'block', '&:hover': { color: '#10b981' } }}>0792620934</Link>
-                    <Link href="tel:0710464858" sx={{ color: '#fff', textDecoration: 'none', display: 'block', '&:hover': { color: '#10b981' } }}>0710464858</Link>
+                    <Link href="tel:0725835781" sx={{ color: '#fff', textDecoration: 'none', display: 'block', '&:hover': { color: '#10b981' } }}>0725835781</Link>
                   </Box>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>

@@ -8,6 +8,12 @@ import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import StarIcon from '@mui/icons-material/Star';
 
+import logo from '../assets/design/trignity software logo.png';
+
+import josephImage from '../assets/design/joseph mbera.png';
+import beatriceImage from '../assets/design/beatrice amollo.png';
+import jaredImage from '../assets/design/jared.jpeg';
+
 export default function About() {
   const values = [
     { icon: <PeopleIcon />, title: 'Customer First', desc: 'Your success is our priority. We listen, adapt, and deliver solutions that truly work.' },
@@ -16,17 +22,15 @@ export default function About() {
     { icon: <SupportAgentIcon />, title: '24/7 Support', desc: 'Our dedicated support team is always available to help you succeed.' }
   ];
 
-  const team = [
-    
-    { name: 'Joseph Mbera', role: 'Founder', image: 'https://placehold.co/150x150/10b981/ffffff?text=JM' },
-    { name: 'Jared Mogonchi', role: 'CTO', image: 'https://placehold.co/150x150/3b82f6/ffffff?text=JM' },
-    { name: 'Beatrice Omolo', role: 'Head of Product', image: 'https://placehold.co/150x150/10b981/ffffff?text=BO' },
-    { name: 'Grace Njoki', role: 'Customer Success', image: 'https://placehold.co/150x150/3b82f6/ffffff?text=GN' }
-  ];
+    const team = [
+       
+       { name: 'Joseph Mbera', role: 'Founder & CEO', image: josephImage },
+       { name: 'Jared Mogonchi', role: 'Technical Director', image: jaredImage },
+       { name: 'Beatrice Omolo', role: 'Product & Project Lead', image: beatriceImage }
+     ];
 
-  return (
+   return (
     <Box sx={{ overflowX: 'hidden', bgcolor: '#ffffff', minHeight: '100vh', pb: 10 }}>
-      {}
       <Box sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
           <Grid container spacing={6} sx={{ alignItems: 'center' }}>
@@ -66,11 +70,11 @@ export default function About() {
               </Box>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
-              <Box sx={{ position: 'relative', height: { xs: 300, md: 400 } }}>
+              <Box sx={{ position: 'relative', height: { xs: 300, md: 400 }, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img
-                  src="https://placehold.co/600x400/0f172a/ffffff?text=Our+Team+at+Work"
+                  src={logo}
                   alt="Trinity Softwares Team"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '24px' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '24px' }}
                 />
               </Box>
             </Grid>
@@ -90,20 +94,20 @@ export default function About() {
             </Grid>
             <Grid size={{ xs: 6, md: 3 }}>
               <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" sx={{ fontWeight: 800, color: '#10b981', fontSize: { xs: '2.5rem', md: '3rem' } }}>1M+</Typography>
-                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Transactions/Month</Typography>
+                <Typography variant="h2" sx={{ fontWeight: 800, color: '#10b981', fontSize: { xs: '2.5rem', md: '3rem' } }}>50K+</Typography>
+                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Monthly Transactions</Typography>
               </Box>
             </Grid>
             <Grid size={{ xs: 6, md: 3 }}>
               <Box sx={{ textAlign: 'center' }}>
                 <Typography variant="h2" sx={{ fontWeight: 800, color: '#10b981', fontSize: { xs: '2.5rem', md: '3rem' } }}>99.9%</Typography>
-                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Uptime</Typography>
+                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Uptime SLA</Typography>
               </Box>
             </Grid>
             <Grid size={{ xs: 6, md: 3 }}>
               <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" sx={{ fontWeight: 800, color: '#10b981', fontSize: { xs: '2.5rem', md: '3rem' } }}>24/7</Typography>
-                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Support</Typography>
+                <Typography variant="h2" sx={{ fontWeight: 800, color: '#10b981', fontSize: { xs: '2.5rem', md: '3rem' } }}>&lt;1 hr</Typography>
+                <Typography variant="body1" sx={{ color: '#64748b', mt: 1 }}>Support Response</Typography>
               </Box>
             </Grid>
           </Grid>
@@ -168,16 +172,18 @@ export default function About() {
             </Typography>
           </Box>
 
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
             {team.map((member, idx) => (
               <Grid size={{ xs: 6, sm: 4, md: 3 }} key={idx}>
-                <Box sx={{ textAlign: 'center' }}>
-                  <Box sx={{ width: '100%', aspectRatio: '1', borderRadius: '50%', overflow: 'hidden', mb: 2, border: '3px solid #10b981' }}>
-                    <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 700, color: '#0f172a', fontSize: '1rem' }}>{member.name}</Typography>
-                  <Typography variant="body2" sx={{ color: '#64748b', fontSize: '0.9rem' }}>{member.role}</Typography>
-                </Box>
+                   <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
+                   <Box sx={{ width: 150, height: 150, borderRadius: '50%', overflow: 'hidden', border: '3px solid #10b981', mb: 2 }}>
+                     <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
+                   </Box>
+                   <Box sx={{ mt: 1.5, width: '100%', textAlign: 'center' }}>
+                     <Typography variant="h6" sx={{ fontWeight: 700, color: '#0f172a', fontSize: '1rem' }}>{member.name}</Typography>
+                     <Typography variant="body2" sx={{ color: '#64748b', fontSize: '0.9rem' }}>{member.role}</Typography>
+                   </Box>
+                   </Box>
               </Grid>
             ))}
           </Grid>

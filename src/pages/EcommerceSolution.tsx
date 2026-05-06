@@ -22,23 +22,22 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 
 export default function EcommerceSolution() {
 
-  const StatCard = ({ title, value, trend, icon: Icon }: { title: string, value: string, trend: string, icon: any }) => (
-    <Paper elevation={0} sx={{ p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-        <Box sx={{ color: '#10b981', bgcolor: '#ecfdf5', p: 0.5, borderRadius: 1, display: 'flex' }}>
-          <Icon sx={{ fontSize: 16 }} />
-        </Box>
-        <Typography sx={{ fontSize: '0.65rem', color: '#64748b', fontWeight: 600 }}>{title}</Typography>
-      </Box>
-      <Typography sx={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', mb: 0.5 }}>{value}</Typography>
-      <Typography sx={{ fontSize: '0.55rem', color: '#10b981', fontWeight: 700 }}>{trend}</Typography>
-    </Paper>
-  );
+   const StatCard = ({ title, value, trend, icon: Icon }: { title: string, value: string, trend: string, icon: any }) => (
+     <Paper elevation={0} sx={{ p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
+       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+         <Box sx={{ color: '#10b981', bgcolor: '#ecfdf5', p: 0.5, borderRadius: 1, display: 'flex' }}>
+           <Icon sx={{ fontSize: { xs: 16, md: 16 } }} />
+         </Box>
+         <Typography sx={{ fontSize: { xs: '0.75rem', md: '0.65rem' }, color: '#64748b', fontWeight: 600 }}>{title}</Typography>
+       </Box>
+       <Typography sx={{ fontSize: { xs: '1.4rem', md: '1.2rem' }, fontWeight: 800, color: '#0f172a', mb: 0.5 }}>{value}</Typography>
+       <Typography sx={{ fontSize: { xs: '0.75rem', md: '0.65rem' }, color: '#10b981', fontWeight: 700 }}>{trend}</Typography>
+     </Paper>
+   );
 
-  return (
+   return (
     <Box sx={{ overflowX: 'hidden', bgcolor: '#ffffff', minHeight: '100vh', pb: 10 }}>
-      {}
-      <Box sx={{ pt: 4, pb: { xs: 8, md: 12 }, position: 'relative' }}>
+      <Box sx={{ pt: { xs: 6, md: 8 }, pb: { xs: 8, md: 12 }, position: 'relative' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bgcolor: '#f8fafc', zIndex: 0, clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)' }} />
         
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 }, position: 'relative', zIndex: 2 }}>
@@ -48,7 +47,7 @@ export default function EcommerceSolution() {
             <Typography color="text.primary" sx={{ fontSize: '0.85rem', fontWeight: 600 }}>Ecommerce Management System</Typography>
           </Breadcrumbs>
 
-          <Grid container spacing={6} sx={{ alignItems: 'center' }}>
+          <Grid container spacing={{ xs: 4, md: 6 }} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 5 }}>
               <Typography variant="h1" sx={{ mb: 3, fontSize: { xs: '2.5rem', md: '3.5rem' }, fontWeight: 800, lineHeight: 1.1, color: '#0f172a' }}>
                 Ecommerce<br/>
@@ -85,8 +84,21 @@ export default function EcommerceSolution() {
             </Grid>
 
             <Grid size={{ xs: 12, md: 7 }}>
-              <Box sx={{ position: 'relative', width: '100%', pt: 4 }}>
-                <Box sx={{ position: 'absolute', bottom: -20, left: -80, width: '500px', height: '400px', zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Box sx={{ position: 'relative', width: '100%', pt: { xs: 4, md: 0 } }}>
+                <Box
+                  sx={{
+                    position: { xs: 'relative', md: 'absolute' },
+                    bottom: { xs: 0, md: -20 },
+                    left: { xs: 0, md: -80 },
+                    width: { xs: '100%', md: '500px' },
+                    height: { xs: 300, md: 400 },
+                    zIndex: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mb: { xs: 4, md: 0 }
+                  }}
+                >
                   <Box component="img" src="https://placehold.co/500x400/1e293b/ffffff?text=Ecommerce+Sales+Dashboard" alt="Ecommerce Dashboard" sx={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }} />
                 </Box>
                 
@@ -127,14 +139,15 @@ export default function EcommerceSolution() {
         </Container>
       </Box>
 
-      <Box sx={{ py: 10 }}>
+      {/* Core Features */}
+      <Box sx={{ py: { xs: 6, md: 8 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
           <Box sx={{ textAlign: 'center', mb: 8 }}>
             <Typography sx={{ color: '#3b82f6', fontWeight: 800, letterSpacing: '0.1em', fontSize: '0.85rem', mb: 2 }}>CORE FEATURES</Typography>
             <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '2rem', md: '2.5rem' } }}>Everything you need to sell online</Typography>
           </Box>
 
-          <Grid container spacing={4}>
+          <Grid container spacing={{ xs: 3, md: 4 }}>
             {[
               { icon: <StorefrontOutlinedIcon />, title: "Storefront Management", desc: "Easily manage your online store's appearance and product listings." },
               { icon: <Inventory2OutlinedIcon />, title: "Inventory Control", desc: "Real-time stock tracking with automated low-stock alerts." },
@@ -159,7 +172,8 @@ export default function EcommerceSolution() {
         </Container>
       </Box>
 
-      <Box sx={{ py: 10, bgcolor: '#f8fafc' }}>
+      {/* Built-in Modules */}
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
           <Box sx={{ textAlign: 'center', mb: 8 }}>
             <Typography variant="h3" sx={{ fontWeight: 800, color: '#0f172a', fontSize: { xs: '1.75rem', md: '2.25rem' } }}>Ecommerce Modules</Typography>
@@ -196,7 +210,8 @@ export default function EcommerceSolution() {
         </Container>
       </Box>
 
-      <Box sx={{ py: 10, bgcolor: '#ffffff' }}>
+      {/* CTA Section */}
+      <Box sx={{ py: { xs: 6, md: 10 }, bgcolor: '#ffffff' }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
           <Box sx={{ 
             background: `linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%)`,

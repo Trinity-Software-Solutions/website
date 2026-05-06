@@ -37,7 +37,7 @@ export default function CustomSolution() {
           <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb" sx={{ mb: 6, '& .MuiBreadcrumbs-li': { fontSize: '0.85rem', fontWeight: 500 } }}>
             <Link component={RouterLink} to="/" color="inherit" underline="hover">Home</Link>
             <Link component={RouterLink} to="/solutions" color="inherit" underline="hover">Solutions</Link>
-            <Typography color="text.primary" sx={{ fontSize: '0.85rem', fontWeight: 600 }}>Custom SaaS Development</Typography>
+            <Typography color="text.primary" sx={{ fontSize: '0.85rem', fontWeight: 600 }}>Custom System Development</Typography>
           </Breadcrumbs>
 
           <Grid container spacing={6} sx={{ alignItems: 'center' }}>
@@ -46,9 +46,9 @@ export default function CustomSolution() {
                 Your Unique Business,<br/>
                 <span style={{ color: '#0f172a' }}>Tailored <span style={{ color: theme.palette.primary.main }}>Solutions</span></span>
               </Typography>
-              <Typography variant="h6" sx={{ mb: 5, fontWeight: 400, color: '#475569', fontSize: '1.1rem', lineHeight: 1.6 }}>
-                Can't find an off-the-shelf solution that fits? We build custom, scalable, and enterprise-grade SaaS applications designed specifically for your unique business processes.
-              </Typography>
+               <Typography variant="h6" sx={{ mb: 5, fontWeight: 400, color: '#475569', fontSize: '1.1rem', lineHeight: 1.6 }}>
+                 Can't find an off-the-shelf solution that fits? We build custom, scalable, and enterprise-grade systems designed specifically for your unique business processes.
+               </Typography>
               
               <Box sx={{ display: 'flex', gap: 2, mb: 8, flexWrap: 'wrap' }}>
                 <Button component={RouterLink} to="/contact" variant="contained" color="primary" size="large" sx={{ px: 4, py: 1.5, borderRadius: '8px', fontSize: '1rem', fontWeight: 700, textTransform: 'none' }}>

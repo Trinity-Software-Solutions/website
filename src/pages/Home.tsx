@@ -9,7 +9,6 @@ import {
   Card, 
   CardContent, 
   useTheme,
-  IconButton,
   alpha
 } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -19,10 +18,15 @@ import ShowChartOutlinedIcon from '@mui/icons-material/ShowChartOutlined';
 import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AddIcon from '@mui/icons-material/Add';
+import HeroDashboardMockup from '../components/HeroDashboardMockup';
 
+import imgRealEstate from '../assets/design/real estate management.jpg';
+import imgPoultry from '../assets/design/poultry farming.jpg';
+import imgEcommerce from '../assets/design/The-Ecommerce-Business-Model-Explained.jpg';
+import imgPOS from '../assets/design/POS image.jpg';
+import imgProcurement from '../assets/design/Procurement & Order Management System.jpg';
+import imgCustom from '../assets/design/request.png';
 
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
@@ -32,13 +36,13 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
-import HeroDashboardMockup from '../components/HeroDashboardMockup';
+
 
 export default function Home() {
   const theme = useTheme();
 
   const TrustBadge = ({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) => (
-    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 1.5, maxWidth: '200px' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 1.5, width: '100%' }}>
       <Box sx={{ color: theme.palette.primary.main, display: 'flex', pt: 0.5 }}>{icon}</Box>
       <Box>
         <Typography variant="subtitle2" sx={{ fontWeight: 700, color: theme.palette.text.primary, fontSize: '0.875rem' }}>{title}</Typography>
@@ -47,44 +51,65 @@ export default function Home() {
     </Box>
   );
 
-   const SolutionCard = ({ title, desc, emoji, isAdd, path, color = theme.palette.info.light }: { title: string, desc: string, emoji?: string, isAdd?: boolean, path: string, color?: string }) => (
+  const SolutionCard = ({ title, desc, image, isAdd, path }: { title: string, desc: string, image?: string, isAdd?: boolean, path: string }) => (
     <Card elevation={0} sx={{ 
       height: '100%', 
       display: 'flex', 
       flexDirection: 'column', 
       border: '1px solid #e2e8f0', 
-      borderRadius: '16px',
+      borderRadius: '20px',
       overflow: 'hidden',
-      transition: 'all 0.3s', 
-      '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 24px -10px rgba(0,0,0,0.1)' } 
+      transition: 'all 0.35s cubic-bezier(0.4,0,0.2,1)', 
+      '&:hover': { transform: 'translateY(-6px)', boxShadow: '0 20px 40px -12px rgba(0,0,0,0.12)', borderColor: 'transparent' } 
     }}>
       <Box sx={{ 
-        height: '140px', 
-        bgcolor: isAdd ? theme.palette.background.default : color, 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        position: 'relative'
+        height: { xs: 160, md: 180 }, 
+        position: 'relative',
+        overflow: 'hidden',
+        bgcolor: '#f8fafc'
       }}>
         {isAdd ? (
-          <Box sx={{ width: 60, height: 60, borderRadius: '50%', border: `2px dashed ${theme.palette.primary.main}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <AddIcon sx={{ fontSize: 32, color: theme.palette.primary.main }} />
+          <Box sx={{ 
+            height: '100%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)'
+          }}>
+            <Box sx={{ 
+              width: 64, height: 64, borderRadius: '18px', 
+              border: `2px dashed ${theme.palette.info.main}`,
+              bgcolor: `${theme.palette.info.main}15`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <AddIcon sx={{ fontSize: 30, color: theme.palette.info.main }} />
+            </Box>
           </Box>
         ) : (
-          <Typography sx={{ fontSize: '4rem' }}>{emoji}</Typography>
+          <Box
+            component="img"
+            src={image}
+            alt={title}
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              transition: 'transform 0.4s ease',
+              '&:hover': { transform: 'scale(1.04)' }
+            }}
+          />
         )}
       </Box>
-      <CardContent sx={{ flexGrow: 1, p: 4, pb: 3 }}>
-        <Typography variant="h6" sx={{ mb: 1.5, fontSize: '1.25rem', fontWeight: 800, color: theme.palette.text.primary }}>{title}</Typography>
-        <Typography variant="body2" sx={{ color: theme.palette.text.secondary, lineHeight: 1.7, mb: 4, fontSize: '0.95rem' }}>{desc}</Typography>
+      <CardContent sx={{ flexGrow: 1, p: 3, pb: 2.5 }}>
+        <Typography variant="h6" sx={{ mb: 1, fontSize: '1.05rem', fontWeight: 800, color: theme.palette.text.primary, lineHeight: 1.3 }}>{title}</Typography>
+        <Typography variant="body2" sx={{ color: theme.palette.text.secondary, lineHeight: 1.7, mb: 3, fontSize: '0.875rem' }}>{desc}</Typography>
         
         <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
           <Button 
             component={RouterLink}
             to={path}
-            size="medium" 
-            sx={{ fontWeight: 700, fontSize: '0.9rem', color: theme.palette.primary.main, p: 0, '&:hover': { bgcolor: 'transparent', color: theme.palette.primary.dark } }} 
-            endIcon={<ArrowForwardIcon />}
+            size="small" 
+            sx={{ fontWeight: 700, fontSize: '0.85rem', color: theme.palette.primary.main, p: 0, textTransform: 'none', '&:hover': { bgcolor: 'transparent', color: theme.palette.primary.dark } }} 
+            endIcon={<ArrowForwardIcon sx={{ fontSize: 16 }} />}
           >
             {isAdd ? 'Get in Touch' : 'Explore'}
           </Button>
@@ -119,19 +144,18 @@ export default function Home() {
     </Box>
   );
 
-  return (
+   return (
     <Box sx={{ overflowX: 'hidden' }}>
-      {}
-      <Box sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 4, md: 6 }, position: 'relative' }}>
+      <Box sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 }, position: 'relative' }}>
         <Box sx={{ position: 'absolute', top: '15%', right: '5%', width: 80, height: 80, borderRadius: '20px', bgcolor: theme.palette.info.main, opacity: 0.05, transform: 'rotate(15deg)' }} />
         <Box sx={{ position: 'absolute', bottom: '10%', left: '2%', width: 120, height: 120, borderRadius: '50%', bgcolor: theme.palette.primary.main, opacity: 0.03 }} />
 
-        <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
-          <Grid container spacing={4} sx={{ alignItems: 'center' }}>
-            <Grid size={{ xs: 12, md: 5.5 }} sx={{ pr: { md: 2 } }}>
-              <Box sx={{ display: 'inline-block', bgcolor: theme.palette.primary.light, color: theme.palette.primary.main, px: 2, py: 0.5, borderRadius: '20px', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', mb: 3 }}>
+         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
+           <Grid container spacing={{ xs: 3, md: 4 }} sx={{ alignItems: 'center' }}>
+             <Grid size={{ xs: 12, md: 5 }}>
+              <Typography sx={{ color: theme.palette.primary.main, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', mb: 2, display: 'block', textTransform: 'uppercase' }}>
                 ALL-IN-ONE SAAS PLATFORM
-              </Box>
+              </Typography>
                <Typography variant="h1" sx={{ mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' }, fontWeight: 800, lineHeight: 1.1, color: theme.palette.text.primary }}>
                  All Your Business Systems.<br />
                  <span style={{ color: theme.palette.primary.main }}>One Powerful Platform.</span>
@@ -150,22 +174,22 @@ export default function Home() {
               </Box>
 
               <Grid container spacing={3}>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                   <TrustBadge icon={<VerifiedUserOutlinedIcon />} title="Secure & Reliable" desc="Enterprise-grade security you can trust" />
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                   <TrustBadge icon={<AutorenewOutlinedIcon />} title="99.9% Uptime" desc="High availability and performance" />
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                   <TrustBadge icon={<ShowChartOutlinedIcon />} title="Scalable Platform" desc="Built to grow with your business" />
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                   <TrustBadge icon={<SupportAgentOutlinedIcon />} title="24/7 Support" desc="Always here when you need us" />
                 </Grid>
               </Grid>
             </Grid>
 
-            <Grid size={{ xs: 12, md: 6.5 }} sx={{ position: 'relative', minHeight: { xs: 400, md: 600 } }}>
+            <Grid size={{ xs: 12, md: 7 }} sx={{ position: 'relative', minHeight: { xs: 400, md: 600 } }}>
               <Box sx={{ position: 'relative', zIndex: 2, pl: { md: 4 }, width: '100%', height: '100%' }}>
                 <HeroDashboardMockup />
               </Box>
@@ -174,92 +198,80 @@ export default function Home() {
         </Container>
       </Box>
 
-      {}
       <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '2rem', md: '2.5rem' } }}>Our Solutions</Typography>
-            <Typography variant="body1" sx={{ color: '#64748b', fontSize: '1rem' }}>Industry-focused SaaS solutions to simplify and scale your operations.</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', mb: 6, flexWrap: 'wrap', gap: 2 }}>
+            <Box>
+              <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '2rem', md: '2.5rem' } }}>Our Solutions</Typography>
+              <Typography variant="body1" sx={{ color: '#64748b', fontSize: '1rem' }}>Industry-focused SaaS solutions to simplify and scale your operations.</Typography>
+            </Box>
+            <Button component={RouterLink} to="/solutions" endIcon={<ArrowForwardIcon />} size="medium" sx={{ fontWeight: 700, fontSize: '0.9rem', color: theme.palette.primary.main, textTransform: 'none', p: 0, mb: 0.5 }}>View All Solutions</Button>
           </Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <IconButton size="small" sx={{ bgcolor: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', p: 1, '&:hover': { bgcolor: '#f8fafc', transform: 'scale(1.05)' }, transition: 'all 0.2s', display: { xs: 'none', md: 'flex' } }}>
-              <ChevronLeftIcon />
-            </IconButton>
-            
-               <Grid container spacing={4} sx={{ flexGrow: 1 }}>
-               <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                 <SolutionCard 
-                   title="Real Estate Management" 
-                   desc="Manage properties, tenants, leases, payments and maintenance efficiently."
-                   emoji="🏠"
-                   path="/solutions/real-estate"
-                   color={theme.palette.info.light}
-                 />
-               </Grid>
-               <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                 <SolutionCard 
-                   title="Poultry Management System" 
-                   desc="Track flock, feed, health, egg production and sales in real-time."
-                   emoji="🐔"
-                   path="/solutions/poultry"
-                   color="#ecfdf5"
-                 />
-               </Grid>
-               <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                 <SolutionCard 
-                   title="Ecommerce Management" 
-                   desc="Manage products, orders, inventory, customers and sales across channels."
-                   emoji="🛒"
-                   path="/solutions/ecommerce"
-                   color="#ecfdf5"
-                 />
-               </Grid>
-               <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                 <SolutionCard 
-                   title="Point of Sale (POS)" 
-                   desc="Fast and secure checkout for retail, hospitality and service businesses."
-                   emoji="💳"
-                   path="/solutions/pos"
-                   color="#ecfdf5"
-                 />
-               </Grid>
-               <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                 <SolutionCard 
-                   title="Procurement & Order Management" 
-                   desc="Streamline procurement, track orders, manage suppliers and delivery."
-                   emoji="📦"
-                   path="/solutions/procurement"
-                   color="#ecfdf5"
-                 />
-               </Grid>
-              <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                <SolutionCard 
-                  title="Add New Solution" 
-                  desc="Have a unique business need? We can build a custom SaaS solution for you."
-                  isAdd
-                  path="/contact"
-                />
-              </Grid>
+          <Grid container spacing={{ xs: 2, md: 3 }}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Real Estate Management" 
+                desc="Manage properties, tenants, leases, payments and maintenance efficiently."
+                image={imgRealEstate}
+                path="/solutions/real-estate"
+              />
             </Grid>
-
-            <IconButton size="small" sx={{ bgcolor: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', p: 1, '&:hover': { bgcolor: '#f8fafc', transform: 'scale(1.05)' }, transition: 'all 0.2s', display: { xs: 'none', md: 'flex' } }}>
-              <ChevronRightIcon />
-            </IconButton>
-          </Box>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Poultry Management System" 
+                desc="Track flock, feed, health, egg production and sales in real-time."
+                image={imgPoultry}
+                path="/solutions/poultry"
+              />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Ecommerce Management" 
+                desc="Manage products, orders, inventory, customers and sales across channels."
+                image={imgEcommerce}
+                path="/solutions/ecommerce"
+              />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Point of Sale (POS)" 
+                desc="Fast and secure checkout for retail, hospitality and service businesses."
+                image={imgPOS}
+                path="/solutions/pos"
+              />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Procurement & Order Management" 
+                desc="Streamline procurement, track orders, manage suppliers and delivery."
+                image={imgProcurement}
+                path="/solutions/procurement"
+              />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <SolutionCard 
+                title="Request Custom Solution" 
+                desc="Have a unique business need? We can build a custom system for you."
+                image={imgCustom}
+                isAdd
+                path="/contact"
+              />
+            </Grid>
+          </Grid>
           
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-            <Button component={RouterLink} to="/solutions" endIcon={<ArrowForwardIcon />} size="medium" sx={{ fontWeight: 700, fontSize: '0.9rem', color: '#10b981', textTransform: 'none' }}>View All Solutions</Button>
-          </Box>
-        </Container>
-      </Box>
 
-      {}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
+        </Container>
+        </Box>
+
+        <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '2rem', md: '2.5rem' } }}>Powerful Modules</Typography>
-            <Typography variant="body1" sx={{ color: '#64748b', fontSize: '1rem' }}>Everything you need to run and grow your business.</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', mb: 6, flexWrap: 'wrap', gap: 2 }}>
+            <Box>
+              <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '2rem', md: '2.5rem' } }}>Powerful Modules</Typography>
+              <Typography variant="body1" sx={{ color: '#64748b', fontSize: '1rem' }}>Everything you need to run and grow your business.</Typography>
+            </Box>
+            <Button component={RouterLink} to="/modules" endIcon={<ArrowForwardIcon />} size="medium" sx={{ fontWeight: 700, fontSize: '0.9rem', color: theme.palette.primary.main, textTransform: 'none', p: 0, mb: 0.5 }}>View All Modules</Button>
           </Box>
 
           <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
@@ -279,14 +291,11 @@ export default function Home() {
             ))}
           </Grid>
 
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-            <Button component={RouterLink} to="/modules" endIcon={<ArrowForwardIcon />} size="medium" sx={{ fontWeight: 700, fontSize: '0.9rem', color: theme.palette.info.main, textTransform: 'none' }}>View All Modules</Button>
-          </Box>
-        </Container>
-      </Box>
 
-      {}
-      <Box sx={{ pb: { xs: 6, md: 8 }, pt: { xs: 4, md: 6 }, bgcolor: '#f8fafc' }}>
+        </Container>
+        </Box>
+
+        <Box sx={{ pb: { xs: 6, md: 8 }, pt: { xs: 6, md: 6 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 6, lg: 8 } }}>
           <Box sx={{ 
             background: `linear-gradient(90deg, #0f172a 0%, #064e3b 100%)`,

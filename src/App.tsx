@@ -1,7 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Fab, ThemeProvider, CssBaseline } from '@mui/material';
-import type { PaletteMode } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { getTheme } from './theme';
 import Navbar from './components/Navbar';
@@ -9,9 +8,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Pricing from './pages/Pricing';
-import Products from './pages/Products';
-import Modules from './pages/Modules';
-import Resources from './pages/Resources';
 import Solutions from './pages/Solutions';
 import RealEstateSolution from './pages/RealEstateSolution';
 import PoultrySolution from './pages/PoultrySolution';
@@ -22,28 +18,20 @@ import POSSolution from './pages/POSSolution';
 import Contact from './pages/Contact';
 
 function App() {
-  const [mode, setMode] = useState<PaletteMode>('light');
-
-  const theme = useMemo(() => getTheme(mode), [mode]);
-
-  const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  };
+  const theme = useMemo(() => getTheme('light'), []);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-          <Navbar mode={mode} toggleColorMode={toggleColorMode} />
+          <Navbar />
           <main style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/modules" element={<Modules />} />
-            <Route path="/resources" element={<Resources />} />
+
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/real-estate" element={<RealEstateSolution />} />
             <Route path="/solutions/poultry" element={<PoultrySolution />} />

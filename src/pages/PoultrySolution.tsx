@@ -1,9 +1,7 @@
-import React from 'react';
 import { 
   Container, Typography, Box, Button, Grid, Paper, useTheme, Breadcrumbs, Link
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
@@ -27,15 +25,15 @@ export default function PoultrySolution() {
   const theme = useTheme();
 
   const StatCard = ({ title, value, trend, icon: Icon }: { title: string, value: string, trend: string, icon: any }) => (
-    <Paper elevation={0} sx={{ p: 1, borderRadius: 2, border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
+    <Paper elevation={0} sx={{ p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
         <Box sx={{ color: '#10b981', bgcolor: '#ecfdf5', p: 0.5, borderRadius: 1, display: 'flex' }}>
-          <Icon sx={{ fontSize: 14 }} />
+          <Icon sx={{ fontSize: 16 }} />
         </Box>
-        <Typography sx={{ fontSize: '0.6rem', color: '#64748b', fontWeight: 600 }}>{title}</Typography>
+        <Typography sx={{ fontSize: '0.65rem', color: '#64748b', fontWeight: 600 }}>{title}</Typography>
       </Box>
-      <Typography sx={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', mb: 0.5 }}>{value}</Typography>
-      <Typography sx={{ fontSize: '0.5rem', color: '#10b981', fontWeight: 700 }}>{trend}</Typography>
+      <Typography sx={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', mb: 0.5 }}>{value}</Typography>
+      <Typography sx={{ fontSize: '0.55rem', color: '#10b981', fontWeight: 700 }}>{trend}</Typography>
     </Paper>
   );
 
@@ -173,11 +171,11 @@ export default function PoultrySolution() {
                   </Grid>
 
                   {}
-                  <Paper elevation={0} sx={{ mt: 1.5, p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0' }}>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1.5 }}>
-                      <Typography sx={{ fontSize: '0.65rem', fontWeight: 800 }}>Recent Alerts</Typography>
-                      <Typography sx={{ fontSize: '0.6rem', color: '#3b82f6' }}>View All Alerts →</Typography>
-                    </Box>
+                    <Paper elevation={0} sx={{ mt: 1.5, p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0' }}>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1.5 }}>
+                        <Typography sx={{ fontSize: '0.65rem', fontWeight: 800 }}>Recent Alerts</Typography>
+                        <Typography sx={{ fontSize: '0.6rem', color: '#3b82f6' }}>View All Alerts →</Typography>
+                      </Box>
                     <Grid container spacing={2}>
                       {[
                         { icon: ScienceOutlinedIcon, title: "Low Feed Stock", sub: "Layer Farm 1", color: '#ef4444' },
@@ -212,28 +210,28 @@ export default function PoultrySolution() {
             <Typography variant="h2" sx={{ mb: 2, fontWeight: 800, color: '#0f172a', fontSize: { xs: '1.75rem', md: '2.25rem' } }}>Everything you need to manage your poultry business efficiently</Typography>
           </Box>
 
-          <Grid container spacing={3}>
-            {[
-              { icon: <PetsOutlinedIcon />, title: "Flock Management", desc: "Manage all flocks, breeds, and age groups in one place." },
-              { icon: <ScaleOutlinedIcon />, title: "Feed Management", desc: "Track feed inventory, consumption and optimize usage." },
-              { icon: <MonitorHeartOutlinedIcon />, title: "Health Management", desc: "Monitor health, vaccination schedules and medical treatments." },
-              { icon: <EggOutlinedIcon />, title: "Egg Production", desc: "Track daily egg production, quality and batch information." },
-              { icon: <LocalShippingOutlinedIcon />, title: "Sales & Distribution", desc: "Manage sales, customers, deliveries and payments." },
-              { icon: <ShowChartOutlinedIcon />, title: "Reports & Analytics", desc: "Get real-time insights and analytics to make better decisions." }
-            ].map((cap, i) => (
-              <Grid size={{ xs: 12, md: 4 }} key={i}>
-                <Paper elevation={0} sx={{ p: 3, borderRadius: '16px', border: '1px solid #f1f5f9', display: 'flex', gap: 2, height: '100%', transition: 'all 0.2s', '&:hover': { boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderColor: '#e2e8f0' } }}>
-                  <Box sx={{ color: '#10b981', bgcolor: '#ecfdf5', p: 1.5, borderRadius: '12px', display: 'flex', alignItems: 'flex-start', height: 'fit-content' }}>
-                    {cap.icon}
-                  </Box>
-                  <Box>
-                    <Typography sx={{ fontWeight: 800, fontSize: '1rem', color: '#0f172a', mb: 1 }}>{cap.title}</Typography>
-                    <Typography sx={{ color: '#64748b', fontSize: '0.85rem', lineHeight: 1.6 }}>{cap.desc}</Typography>
-                  </Box>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
+            <Grid container spacing={3}>
+              {[
+                { icon: <PetsOutlinedIcon />, title: "Flock Management", desc: "Manage all flocks, breeds, and age groups in one place." },
+                { icon: <ScaleOutlinedIcon />, title: "Feed Management", desc: "Track feed inventory, consumption and optimize usage." },
+                { icon: <MonitorHeartOutlinedIcon />, title: "Health Management", desc: "Monitor health, vaccination schedules and medical treatments." },
+                { icon: <EggOutlinedIcon />, title: "Egg Production", desc: "Track daily egg production, quality and batch information." },
+                { icon: <LocalShippingOutlinedIcon />, title: "Sales & Distribution", desc: "Manage sales, customers, deliveries and payments." },
+                { icon: <ShowChartOutlinedIcon />, title: "Reports & Analytics", desc: "Get real-time insights and analytics to make better decisions." }
+              ].map((cap, i) => (
+                <Grid size={{ xs: 12, md: 4 }} key={i}>
+                  <Paper elevation={0} sx={{ p: 3, borderRadius: '16px', border: '1px solid #f1f5f9', display: 'flex', gap: 2, height: '100%', transition: 'all 0.2s', '&:hover': { boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderColor: '#e2e8f0' } }}>
+                    <Box sx={{ color: '#10b981', bgcolor: '#ecfdf5', p: 1.5, borderRadius: '12px', display: 'flex', alignItems: 'flex-start', height: 'fit-content' }}>
+                      {cap.icon}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 800, fontSize: '1rem', color: '#0f172a', mb: 1 }}>{cap.title}</Typography>
+                      <Typography sx={{ color: '#64748b', fontSize: '0.85rem', lineHeight: 1.6 }}>{cap.desc}</Typography>
+                    </Box>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
         </Container>
       </Box>
 
@@ -244,34 +242,34 @@ export default function PoultrySolution() {
             <Typography variant="h3" sx={{ fontWeight: 800, color: '#0f172a', fontSize: { xs: '1.5rem', md: '2rem' } }}>All Poultry Modules</Typography>
           </Box>
 
-          <Grid container spacing={2.5}>
-            {[
-              { icon: <DashboardOutlinedIcon />, title: "Dashboard", desc: "Overview of key metrics and performance." },
-              { icon: <PetsOutlinedIcon />, title: "Flock Management", desc: "Add, update and track all flocks." },
-              { icon: <PeopleAltOutlinedIcon />, title: "Breed Management", desc: "Manage different breeds and categories." },
-              { icon: <ScaleOutlinedIcon />, title: "Feed Management", desc: "Manage feed types, stock and suppliers." },
-              { icon: <MonitorHeartOutlinedIcon />, title: "Health & Vaccination", desc: "Track health records, vaccinations and alerts." },
-              { icon: <EggOutlinedIcon />, title: "Egg Production", desc: "Record and analyze daily egg production." },
-              { icon: <Inventory2OutlinedIcon />, title: "Inventory Management", desc: "Manage feed, medicines and other inventory." },
-              { icon: <AssignmentOutlinedIcon />, title: "Sales Management", desc: "Manage customers, orders and sales." },
-              { icon: <AccountBalanceWalletOutlinedIcon />, title: "Expense Management", desc: "Track all expenses and operational costs." },
-              { icon: <ShowChartOutlinedIcon />, title: "Reports & Analytics", desc: "Generate custom reports and business insights." },
-              { icon: <NotificationsActiveOutlinedIcon />, title: "Notifications", desc: "Get alerts for important activities." },
-              { icon: <PeopleAltOutlinedIcon />, title: "User Management", desc: "Manage users and access permissions." }
-            ].map((mod, i) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
-                <Paper elevation={0} sx={{ p: 2, borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', gap: 2, height: '100%', bgcolor: '#fff' }}>
-                  <Box sx={{ color: '#10b981', display: 'flex', alignItems: 'flex-start' }}>
-                    {mod.icon}
-                  </Box>
-                  <Box>
-                    <Typography sx={{ fontWeight: 700, fontSize: '0.85rem', color: '#0f172a', mb: 0.5 }}>{mod.title}</Typography>
-                    <Typography sx={{ color: '#64748b', fontSize: '0.75rem', lineHeight: 1.4 }}>{mod.desc}</Typography>
-                  </Box>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
+            <Grid container spacing={2.5}>
+              {[
+                { icon: <DashboardOutlinedIcon />, title: "Dashboard", desc: "Overview of key metrics and performance." },
+                { icon: <PetsOutlinedIcon />, title: "Flock Management", desc: "Add, update and track all flocks." },
+                { icon: <PeopleAltOutlinedIcon />, title: "Breed Management", desc: "Manage different breeds and categories." },
+                { icon: <ScaleOutlinedIcon />, title: "Feed Management", desc: "Manage feed types, stock and suppliers." },
+                { icon: <MonitorHeartOutlinedIcon />, title: "Health & Vaccination", desc: "Track health records, vaccinations and alerts." },
+                { icon: <EggOutlinedIcon />, title: "Egg Production", desc: "Record and analyze daily egg production." },
+                { icon: <Inventory2OutlinedIcon />, title: "Inventory Management", desc: "Manage feed, medicines and other inventory." },
+                { icon: <AssignmentOutlinedIcon />, title: "Sales Management", desc: "Manage customers, orders and sales." },
+                { icon: <AccountBalanceWalletOutlinedIcon />, title: "Expense Management", desc: "Track all expenses and operational costs." },
+                { icon: <ShowChartOutlinedIcon />, title: "Reports & Analytics", desc: "Generate custom reports and business insights." },
+                { icon: <NotificationsActiveOutlinedIcon />, title: "Notifications", desc: "Get alerts for important activities." },
+                { icon: <PeopleAltOutlinedIcon />, title: "User Management", desc: "Manage users and access permissions." }
+              ].map((mod, i) => (
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
+                  <Paper elevation={0} sx={{ p: 2, borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', gap: 2, height: '100%', bgcolor: '#fff' }}>
+                    <Box sx={{ color: '#10b981', display: 'flex', alignItems: 'flex-start' }}>
+                      {mod.icon}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.85rem', color: '#0f172a', mb: 0.5 }}>{mod.title}</Typography>
+                      <Typography sx={{ color: '#64748b', fontSize: '0.75rem', lineHeight: 1.4 }}>{mod.desc}</Typography>
+                    </Box>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
         </Container>
       </Box>
 
