@@ -1,15 +1,10 @@
 import { 
-  Container, Typography, Box, Button, Grid, Paper, useTheme, Breadcrumbs, Link
+  Container, Typography, Box, Button, Grid, Paper, Breadcrumbs, Link
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import SecurityIcon from '@mui/icons-material/Security';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
-import SyncAltIcon from '@mui/icons-material/SyncAlt';
-
-
 import PointOfSaleOutlinedIcon from '@mui/icons-material/PointOfSaleOutlined';
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
@@ -26,7 +21,6 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import posImage from '../assets/design/POS image.jpg';
 
 export default function POSSolution() {
-  const theme = useTheme();
 
    const StatCard = ({ title, value, trend, icon: Icon }: { title: string, value: string, trend: string, icon: any }) => (
      <Paper elevation={0} sx={{ p: 1.5, borderRadius: 2, border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>

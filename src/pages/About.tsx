@@ -1,12 +1,9 @@
-import React from 'react';
 import { Container, Typography, Box, Button, Grid, Paper } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PeopleIcon from '@mui/icons-material/People';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import StarIcon from '@mui/icons-material/Star';
 
 import logo from '../assets/design/trignity software logo.png';
 
